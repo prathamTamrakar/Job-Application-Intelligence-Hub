@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JobIntelHub Capture</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-section">
+        <div class="logo-box">J</div>
+        <div class="logo-text">JobIntel<span>Hub</span></div>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="main-content">
+      
+      <!-- Login View -->
+      <div id="login-view" class="view">
+        <h2>Extension Login</h2>
+        <p class="subtitle">Sync your applications dashboard</p>
+        
+        <div id="error-message" class="error-box hidden"></div>
+        
+        <form id="login-form" class="form-container">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="your.name@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+          </div>
+          <button type="submit" id="btn-login" class="btn btn-primary">Sign In</button>
+        </form>
+      </div>
+
+      <!-- Dashboard View -->
+      <div id="dashboard-view" class="view hidden">
+        <div class="profile-card">
+          <div class="avatar">U</div>
+          <div class="profile-details">
+            <h3 id="user-name">John Doe</h3>
+            <p id="user-email">john.doe@example.com</p>
+          </div>
+        </div>
+
+        <div id="quick-log-section">
+          <div class="status-box" id="active-status-box">
+            <div class="status-indicator"></div>
+            <p>Injected widget active on matched job boards. Or log this current tab below:</p>
+          </div>
+
+          <form id="quick-log-form" class="form-container" style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
+            <div id="quick-error" class="error-box hidden" style="margin-bottom: 4px; padding: 6px; font-size: 11px;"></div>
+            <div id="quick-success" class="hidden" style="margin-bottom: 4px; padding: 8px; background: #10b981; color: white; border-radius: 8px; text-align: center; font-size: 11px; font-weight: bold;">Application logged successfully!</div>
+            
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+              <label for="quick-company" style="font-size: 9px; font-weight: 600; color: #a1a1aa; text-transform: uppercase;">Company Name *</label>
+              <input type="text" id="quick-company" placeholder="e.g. Stripe" style="background-color: #020202; border: 1px solid #27272a; border-radius: 8px; padding: 6px 10px; color: #e4e4e7; font-size: 12px;" required>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+              <label for="quick-role" style="font-size: 9px; font-weight: 600; color: #a1a1aa; text-transform: uppercase;">Position / Role *</label>
+              <input type="text" id="quick-role" placeholder="e.g. Frontend Engineer" style="background-color: #020202; border: 1px solid #27272a; border-radius: 8px; padding: 6px 10px; color: #e4e4e7; font-size: 12px;" required>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+              <label for="quick-url" style="font-size: 9px; font-weight: 600; color: #a1a1aa; text-transform: uppercase;">Job Page URL</label>
+              <input type="text" id="quick-url" style="background-color: #020202; border: 1px solid #27272a; border-radius: 8px; padding: 6px 10px; color: #a1a1aa; font-size: 11px;" readonly>
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+              <label for="quick-resume" style="font-size: 9px; font-weight: 600; color: #a1a1aa; text-transform: uppercase;">Resume Used</label>
+              <input type="text" id="quick-resume" value="Default" style="background-color: #020202; border: 1px solid #27272a; border-radius: 8px; padding: 6px 10px; color: #e4e4e7; font-size: 12px;">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 4px;">
+              <label for="quick-status" style="font-size: 9px; font-weight: 600; color: #a1a1aa; text-transform: uppercase;">Current Status</label>
+              <select id="quick-status" style="background-color: #020202; border: 1px solid #27272a; border-radius: 8px; padding: 6px 10px; color: #e4e4e7; font-size: 12px;">
+                <option value="Applied">Applied</option>
+                <option value="OA">OA</option>
+                <option value="Interview">Interview</option>
+                <option value="Offer">Offer</option>
+              </select>
+            </div>
+            <button type="submit" id="btn-quick-log" class="btn btn-primary" style="margin-top: 4px; padding: 8px; font-size: 12px;">Sync Active Tab</button>
+          </form>
+        </div>
+
+        <button id="btn-logout" class="btn btn-secondary" style="margin-top: 12px; width: 100%; padding: 8px; font-size: 12px;">Log Out</button>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      Job Application Intelligence Hub
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

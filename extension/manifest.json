@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "JobIntelHub Auto-Capture",
+  "version": "1.0.0",
+  "description": "Instantly capture and log job postings to your Job Application Intelligence Hub dashboard.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "http://localhost:5173/*",
+    "https://*.linkedin.com/*",
+    "https://boards.greenhouse.io/*",
+    "https://jobs.lever.co/*",
+    "https://*.myworkdayjobs.com/*",
+    "https://jobs.smartrecruiters.com/*",
+    "https://*.icims.com/*",
+    "https://*.indeed.com/*",
+    "https://*.glassdoor.com/*",
+    "https://wellfound.com/*",
+    "https://*.ziprecruiter.com/*",
+    "https://*.naukri.com/*",
+    "https://*.instahyre.com/*",
+    "https://cutshort.io/*",
+    "https://internshala.com/*",
+    "https://*.foundit.in/*",
+    "https://hirect.in/*",
+    "https://*.shine.com/*"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.linkedin.com/jobs/*",
+        "https://boards.greenhouse.io/*",
+        "https://jobs.lever.co/*",
+        "https://*.myworkdayjobs.com/*",
+        "https://jobs.smartrecruiters.com/*",
+        "https://*.icims.com/*",
+        "https://*.indeed.com/*",
+        "https://*.glassdoor.com/*",
+        "https://wellfound.com/*",
+        "https://*.ziprecruiter.com/*",
+        "https://*.naukri.com/*",
+        "https://*.instahyre.com/*",
+        "https://cutshort.io/*",
+        "https://internshala.com/*",
+        "https://*.foundit.in/*",
+        "https://hirect.in/*",
+        "https://*.shine.com/*",
+
+        "http://localhost:5173/*"
+      ],
+      "js": ["content/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "icons/icon48.png"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
